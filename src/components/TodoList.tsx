@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
 import InputText from './InputText';
 import Item from './Item';
-import './styles/todoList.css';
+import '../styles/todoList.css';
 
 interface TList {
     id: number;
@@ -46,7 +46,8 @@ const TodoList = () => {
     }
     // 입력값 엔터 핸들러
     const handleInputTextKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter'){
+        if (e.key === 'Enter' && e.nativeEvent.isComposing === false){
+            
             const newList: TList = {
                 id: nextId.current,
                 text: inputText,
@@ -57,28 +58,32 @@ const TodoList = () => {
             nextId.current += 1;
         }
     }
+    console.log(tasks);
 
     return (
-        <>
-        <div className="todoList">
-            {tasks.map( task => 
-                <Item 
-                    key={`${task.id}task`}
-                    id = {task.id}
-                    text = {task.text}
-                    completed={task.completed}
-                    onClickCheckBox={handleClickCheckBox}
-                    onClickDeleteButton={handleClickDeleteButton}
+        <div className='appContainer'>
+            <div className="todoListContainer">
+                <div className="todoList">
+                    {tasks.map( task => 
+                        <Item 
+                            key={`${task.id}task`}
+                            id = {task.id}
+                            text = {task.text}
+                            completed={task.completed}
+                            onClickCheckBox={handleClickCheckBox}
+                            onClickDeleteButton={handleClickDeleteButton}
+                        />
+                    )}
+                </div>
+            <InputText
+                    onChange={handleInputTextChange}
+                    onKeyDown={handleInputTextKeyDown}
+                    inputText={inputText}
                 />
-            )}
-        </div>
+            </div>
 
-        <InputText
-                onChange={handleInputTextChange}
-                onKeyDown={handleInputTextKeyDown}
-                inputText={inputText}
-            />
-        </>
+
+        </div>
     );
 }
 

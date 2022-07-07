@@ -5,11 +5,7 @@ import TodoList from './components/TodoList';
 const App = () => {
     return (
         <>
-            <div className="mainContainer">
-                <div className="appContainer">
-                    <TodoList/>
-                </div>
-            </div>
+            <TodoList/>
         </>
     );
 }

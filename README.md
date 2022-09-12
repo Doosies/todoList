@@ -10,7 +10,7 @@ https://doosies.github.io/todoList-page/
 ### ⚙️기술스택 
 Typescript, React
 
-# ⚙️구현기능
+# ⚒️ 구현기능
 - TodoList에 할일 추가
 - 할일 제거
 - 완료시 체크

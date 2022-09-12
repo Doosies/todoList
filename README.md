@@ -7,10 +7,10 @@ https://doosies.github.io/todoList-page/
 ### 📆개발일정 
 2022.06.30
 
-### ⚙️기술스택 
+## ⚙️기술스택 
 Typescript, React
 
-# ⚒️ 구현기능
+## ⚒️ 구현기능
 - TodoList에 할일 추가
 - 할일 제거
 - 완료시 체크
